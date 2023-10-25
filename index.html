@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<script src="/js/script.js"></script>
+<html lang="ru-RU">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Коломиец Никита Сергеевич">
+    <meta name="description" content="Веб-программирование: Лабораторная работа №1.">
+    <meta name="keywords" content="ITMO, ИТМО, ПИиКТ, ВТ, Лабораторная работа, Веб-программирование"/>
+
+    <link href="stylesheets/styles.css" rel="stylesheet">
+    <title>Лабораторная работа №1 | Веб-программирование</title>
+</head>
+
+<body>
+<header>
+    <h1 class="flickerPinkNeonText">Веб-программирование, Лабораторная работа №1, Вариант 1812</h1>
+    <h2 class="pinkNeonText">Коломиец Никита Сергеевич, Р3208</h2>
+</header>
+
+<table id="mainTable">
+    <thead>
+    <td colspan="5">
+        <h3 class="* textBorder">Валидация введенных значений:</h3>
+    </td>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td colspan="5">
+            <hr class="pinkNeonText">
+        </td>
+    </tr>
+
+    <tr>
+        <td rowspan="3">Выберите Х:</td>
+        <td>-3<input name="X-radio-group" type="radio" value="-3" onclick="setX(this.value)"></td>
+        <td>-2<input name="X-radio-group" type="radio" value="-2" onclick="setX(this.value)"></td>
+        <td>-1<input name="X-radio-group" type="radio" value="-1" onclick="setX(this.value)"></td>
+    </tr>
+    <tr>
+        <td>0<input name="X-radio-group" type="radio" value="0" onclick="setX(this.value)"></td>
+        <td>1<input name="X-radio-group" type="radio" value="1" onclick="setX(this.value)"></td>
+        <td>2<input name="X-radio-group" type="radio" value="2" onclick="setX(this.value)"></td>
+    </tr>
+    <tr>
+        <td>3<input name="X-radio-group" type="radio" value="3" onclick="setX(this.value)"></td>
+        <td>4<input name="X-radio-group" type="radio" value="4" onclick="setX(this.value)"></td>
+        <td>5<input name="X-radio-group" type="radio" value="5" onclick="setX(this.value)"></td>
+        <td><input type="hidden" id="X" value=""></td>
+    </tr>
+
+    <tr>
+        <td>Введите Y:</td>
+        <td colspan="3">
+            <input type="hidden" name="Y" value="">
+            <label>
+                <input required name="Y-input" type="text"
+                       placeholder="[от -3 до 5]" maxlength="6" class="change_cursor textBorder"
+                >
+            </label></td>
+    </tr>
+
+    <tr>
+        <td>
+            <hr color="ghostwhite">
+        </td>
+    </tr>
+
+    <tr>
+        <td>Введите R:</td>
+        <td colspan="5">
+            <input type="hidden" name="R-value" value="">
+            <input type="checkbox" id="1_R" name="R-checkbox-input" value="1" onclick="setR(this.value)">
+            <label for="1_R">1</label>
+            <input type="checkbox" id="1.5_R" name="R-checkbox-input" value="1.5" onclick="setR(this.value)">
+            <label for="1.5_R">1.5</label>
+            <input type="checkbox" id="2_R" name="R-checkbox-input" value="2" onclick="setR(this.value)">
+            <label for="2_R">2</label>
+            <input type="checkbox" id="2.5_R" name="R-checkbox-input" value="2.5" onclick="setR(this.value)">
+            <label for="2.5_R">2.5</label>
+            <input type="checkbox" id="3_R" name="R-checkbox-input" value="3" onclick="setR(this.value)">
+            <label for="3_R">3</label>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <hr color="ghostwhite">
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="4">
+            <div id="target">
+                <button id="checkButton" onclick="validate()" (click)="scroll()">Проверить</button>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <hr color="ghostwhite">
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="4">
+            <svg width="400" height="400">
+                <polygon points="200,200 200,350 125,200" class="graphic"/>
+                <polygon points="200,200 200,125 350,125 350,200" class="graphic"/>
+                <path d="M 200 200 L 200 50 C 200 50 80 50 50 200 Z" class="graphic"></path>
+
+                <line x1="0" y1="200" x2="400" y2="200" stroke="black"/>
+                <line x1="200" y1="0" x2="200" y2="400" stroke="black"/>
+
+                <line x1="400" y1="200" x2="390" y2="195" stroke="black"/>
+                <line x1="400" y1="200" x2="390" y2="205" stroke="black"/>
+                <line x1="200" y1="0" x2="205" y2="10" stroke="black"/>
+                <line x1="200" y1="0" x2="195" y2="10" stroke="black"/>
+
+                <text x="385" y="215">x</text>
+                <text x="215" y="15">y</text>
+
+                <text x="40" y="185">-R</text>
+                <line x1="50" y1="195" x2="50" y2="205" stroke="black"/>
+                <text x="115" y="185">-R/2</text>
+                <line x1="125" y1="195" x2="125" y2="205" stroke="black"/>
+                <text x="270" y="185">R/2</text>
+                <line x1="275" y1="195" x2="275" y2="205" stroke="black"/>
+                <text x="345" y="185">R</text>
+                <line x1="350" y1="195" x2="350" y2="205" stroke="black"/>
+
+                <text x="215" y="50">R</text>
+                <line x1="195" y1="50" x2="205" y2="50" stroke="black"/>
+                <text x="215" y="125">R/2</text>
+                <line x1="195" y1="125" x2="205" y2="125" stroke="black"/>
+                <text x="215" y="275">-R/2</text>
+                <line x1="195" y1="275" x2="205" y2="275" stroke="black"/>
+                <text x="215" y="350">-R</text>
+                <line x1="195" y1="350" x2="205" y2="350" stroke="black"/>
+            </svg>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="5">
+            <hr>
+        </td>
+    </tr>
+    </tbody>
+
+    <tfoot>
+    <tr>
+        <td colspan="5" id="outputContainer">
+            <h4>
+                <span>Нет результатов</span>
+            </h4>
+        </td>
+    </tr>
+    </tfoot>
+</table>
+<footer>
+    <figure>
+        <a href="https://se.ifmo.ru">
+            <img src="../../lab1/images/logo.png"
+                 alt="Факультет Программной инженерии и компьютерной техники Университета ИТМО"
+                 title="Перейти на сайт ПИиКТ ИТМО">
+        </a>
+        <figcaption class="flickerPinkNeonText">2023</figcaption>
+    </figure>
+</footer>
+</body>
+</html>
